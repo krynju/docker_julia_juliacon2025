@@ -1,5 +1,6 @@
 module PackageA
 
+using DataFrames
 using PackageB: something_from_package_b
 
 function main()

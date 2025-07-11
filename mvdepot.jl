@@ -103,7 +103,3 @@ end
 run(`cp -Ra $(joinpath(source_depot, "registries")) $(joinpath(target_depot, "registries"))`)
 # run(`cp -Ra $(joinpath(source_depot, "clones")) $(joinpath(target_depot, "clones"))`)
 # run(`cp -Ra $(joinpath(source_depot, "logs")) $(joinpath(target_depot, "logs"))`)
-
-
-# RUN --mount=type=cache,id=juliadepot_services,target=/juliateam/.julia2,uid=1000,gid=1000,sharing=shared \
-#   JULIA_DEPOT_PATH=/juliateam/.julia2: julia --project=a ${IS}/mvdepot.jl  /juliateam/.julia
