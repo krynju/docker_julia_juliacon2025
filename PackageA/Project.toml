@@ -1,0 +1,8 @@
+name="PackageA"
+uuid="6f44b852-039a-4820-b698-1ee444e3884f"
+
+[deps]
+PackageB="dcb3e046-bec4-4865-9d82-e39561bd5d09"
+
+[sources]
+PackageB={path="../PackageB"}
