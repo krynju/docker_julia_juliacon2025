@@ -19,6 +19,9 @@ project_precompile_w_sysimage:
 	docker build . --file project_precompile_5_w_sysimage.Dockerfile -t project_precompile_w_sysimage:latest
 project_precompile_cache_doesnt_work: 
 	docker build . --file project_precompile_6_cache_doesnt_work.Dockerfile -t project_precompile_cache_doesnt_work:latest
+project_precompile_cache_should_work: 
+	docker build . --file project_precompile_7_cache_seems_to_work.Dockerfile -t project_precompile_cache_seems_to_work:latest
+
 
 all: julia_install_image \
 	julia_install_binary_dl \
@@ -42,3 +45,5 @@ run_project_precompile_w_sysimage:
 	docker run --rm  project_precompile_w_sysimage:latest
 run_project_precompile_cache_doesnt_work: 	
 	docker run --rm  project_precompile_cache_doesnt_work:latest
+run_project_precompile_cache_seems_to_work:
+	docker run --rm  project_precompile_cache_seems_to_work:latest

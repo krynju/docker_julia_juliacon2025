@@ -10,10 +10,11 @@ COPY PackageB PackageB
 RUN mkdir /root/.julia
 
 # This FROM branches off the current context and we'll get back to it later
-FROM base AS sysimage_build
-
-
+FROM julia:1.11 AS sysimage_build
+ENV JULIA_CPU_TARGET=generic;sandybridge,-xsaveopt,clone_all;haswell,-rdrnd,base(1)
 RUN apt-get update && apt-get install --no-install-recommends -y g++
+
+COPY --link --from=base /myproject /myproject
 
 RUN --mount=type=cache,id=packageabuild,target=/root/.julia,sharing=private \
     julia -e " \

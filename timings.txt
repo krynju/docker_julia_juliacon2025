@@ -1,0 +1,36 @@
+1. no precompile
+build 0.467
+rebuild 0.504
+run 55.256
+
+
+
+2. precompile no cache
+build 58.712
+rebuild 61.51
+run 1.59
+
+3. precompile 2 step cache
+build 61.35
+rebuild 10.313
+run 1.563
+
+4. precompile 2 step cache mvdepot
+build 64.19
+rebuild 10.567
+run 1.563
+
+5. sysimage
+build 220.92
+rebuild 140.61
+run 1.076
+
+6. cache 1 step reloca  
+build 58.356
+rebuild 7.462
+run 1.532
+
+7. cache 1 should work
+build 61.82
+rebuild 7.659
+run 1.508
