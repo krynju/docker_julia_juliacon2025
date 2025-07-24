@@ -10,9 +10,9 @@ COPY PackageB PackageB
 RUN mkdir /root/.julia
 
 # Looks great, but doesn't work
-# Some packages precompile in paths related to depots
+# Some packages are not relocatable
 
-RUN --mount=type=cache,id=packageabuild,target=/root/.julia_2,sharing=private \
+RUN --mount=type=cache,id=packageabuild4,target=/root/.julia_2,sharing=private \
     JULIA_DEPOT_PATH=/root/.julia_2: julia --project=/myproject/PackageA -e "using Pkg; Pkg.instantiate(); Pkg.API.precompile()" && \
     cp -Ra /root/.julia_2/* /root/.julia
 

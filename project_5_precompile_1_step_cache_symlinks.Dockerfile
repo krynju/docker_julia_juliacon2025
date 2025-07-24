@@ -9,7 +9,7 @@ COPY PackageB PackageB
 
 # Looks great, one run, should work?
 
-RUN --mount=type=cache,id=packageabuild7,target=/root/.julia_2,sharing=private \
+RUN --mount=type=cache,id=packageabuild5,target=/root/.julia_2,sharing=private \
     ln -s /root/.julia_2 /root/.julia && \
     julia --project=/myproject/PackageA -e "using Pkg; Pkg.instantiate(); Pkg.API.precompile()" && \
     rm /root/.julia && \

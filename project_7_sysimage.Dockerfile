@@ -16,7 +16,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y g++
 
 COPY --link --from=base /myproject /myproject
 
-RUN --mount=type=cache,id=packageabuild,target=/root/.julia,sharing=private \
+RUN --mount=type=cache,id=packageabuild7,target=/root/.julia,sharing=private \
     julia -e " \
     using Pkg; Pkg.activate(;temp=true); Pkg.add(\"PackageCompiler\"); \
     using PackageCompiler; \
@@ -27,7 +27,7 @@ FROM base AS base-finish
 
 COPY --from=sysimage_build /sysimage.so .
 
-RUN --mount=type=cache,id=packageabuild,target=/root/.julia_2,sharing=private \
+RUN --mount=type=cache,id=packageabuild7,target=/root/.julia_2,sharing=private \
     cp -Ra /root/.julia_2/* /root/.julia
 
 CMD ["julia", "--project=/myproject/PackageA", "-J", "sysimage.so", "-e", "using PackageA: main; main()"]
